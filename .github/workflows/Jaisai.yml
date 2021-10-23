@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: Downloading Ngrok.
       run: |
+        Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/impu/main/start.bat -OutFile start.bat
         Invoke-WebRequest https://raw.githubusercontent.com/jaisai1337/impu/main/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
     - name: Extracting Ngrok Files.
       run: Expand-Archive ngrok.zip
